@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from db import GroceryDB
 
 
@@ -18,28 +18,33 @@ def all_grocery():
 @app.route('/grocery/add', methods=['POST'])
 def add_grocery():
     """Add a grocery"""
-    pass
+    data = request.get_json()
+    db.add(data)
+    return data
 
 
 # view all grocery by type
 @app.route('/grocery/type/<type>')
 def all_grocery_by_type(type):
     """Get all grocery by type"""
-    pass
+    data = db.get_by_type(type)
+    return data
 
 
 # view all grocery by name
 @app.route('/grocery/name/<name>')
 def all_grocery_by_name(name):
     """Get all grocery by name"""
-    pass
+    data = all_grocery_by_name(name)
+    return data
 
 
 # view all grocery by price
 @app.route('/grocery/price/<float:price>')
 def all_grocery_by_price(price):
     """Get all grocery by price"""
-    pass
+    data = all_grocery_by_price(price)
+    return data
 
 
 
