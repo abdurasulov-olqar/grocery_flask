@@ -18,8 +18,17 @@ def all_grocery():
 @app.route('/grocery/add', methods=['POST'])
 def add_grocery():
     """Add a grocery"""
+<<<<<<< HEAD
     data = request.get_json()
     db.add(data)
+=======
+    # get data from request body
+    data = request.get_json()
+    # commit data into database
+    db.add(data)
+    
+
+>>>>>>> 74259fae110c4738465b7f266ea23a076d9f3ddd
     return data
 
 
