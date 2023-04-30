@@ -5,6 +5,12 @@ from db import GroceryDB
 app = Flask(__name__)
 db = GroceryDB()
 
+# view home 
+@app.route('/')
+def home():
+    """Get home page"""
+    
+    return "<h1>Hello fromm Olqar</h1>"
 
 # view all grocery
 @app.route('/grocery')
